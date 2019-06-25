@@ -14,14 +14,13 @@
   },
   "author": "Raunak Singha",
   "license": "ISC",
-  "devDependencies": {
-    "@babel/preset-env": "^7.4.5",
-    "babel-cli": "^6.26.0",
-    "babel-loader": "^8.0.6"
-  },
+  "devDependencies": {},
   "dependencies": {
     "@babel/core": "^7.4.5",
     "@babel/polyfill": "^7.4.4",
+    "@babel/preset-env": "^7.4.5",
+    "babel-cli": "^6.26.0",
+    "babel-loader": "^8.0.6",
     "babel-watch": "^7.0.0",
     "bcrypt": "^3.0.6",
     "express": "^4.17.1",
