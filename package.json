@@ -1,0 +1,36 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "engines": {
+    "node": "10.12.0",
+    "npm": "6.4.1"
+  },
+  "scripts": {
+    "test": "nodemon index.js",
+    "dev": "babel-watch index.js",
+    "start": "babel-watch index.js"
+  },
+  "author": "Raunak Singha",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.4.5",
+    "@babel/preset-env": "^7.4.5",
+    "babel-cli": "^6.26.0",
+    "babel-loader": "^8.0.6",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-watch": "^7.0.0"
+  },
+  "dependencies": {
+    "@babel/polyfill": "^7.4.4",
+    "bcrypt": "^3.0.6",
+    "dotenv": "^8.0.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "nodemon": "^1.19.1",
+    "pg": "^7.11.0",
+    "uuid": "^3.3.2"
+  }
+}
