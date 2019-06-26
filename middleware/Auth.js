@@ -1,5 +1,6 @@
 import jwt from 'jsonwebtoken';
 import db from '../db';
+import keys from '../config/keys';
 
 const Auth = {
     /**
@@ -10,12 +11,12 @@ const Auth = {
      * @returns {object|void} response object 
      */
     async verifyToken(req, res, next) {
-        const token = req.headers['x-access-token'];
+        const token = req.headers['x-api-key'];
         if (!token) {
             return res.status(400).send({ 'message': 'Token is not provided' });
         }
         try {
-            const decoded = await jwt.verify(token, process.env.SECRET);
+            const decoded = await jwt.verify(token, keys.SECRET);
             const text = 'SELECT * FROM users WHERE id = $1';
             const { rows } = await db.query(text, [decoded.userId]);
             if (!rows[0]) {

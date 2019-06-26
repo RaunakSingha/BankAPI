@@ -1,5 +1,6 @@
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
+import keys from '../config/keys'
 
 const Utility = {
 
@@ -22,7 +23,7 @@ const Utility = {
         const token = jwt.sign({
             userId: id
         },
-            process.env.SECRET, { expiresIn: '5d' }
+            keys.SECRET, { expiresIn: '5d' }
         );
         return token;
     }

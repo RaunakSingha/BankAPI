@@ -7,7 +7,7 @@ const User = {
      * Create A User
      * @param {object} req 
      * @param {object} res
-     * @returns {object} reflection object 
+     * @returns {object} user object 
      */
     async create(req, res) {
         if (!req.body.email || !req.body.password) {
@@ -30,11 +30,10 @@ const User = {
 
         try {
             const { rows } = await db.query(createQuery, values);
-            const token = Utility.generateToken(rows[0].id);
-            return res.status(201).send({ token });
+            return res.status(201).send({ 'message': "User registered successfully" });
         } catch (error) {
             if (error.routine === '_bt_check_unique') {
-                return res.status(400).send({ 'message': 'User with that EMAIL already exist' })
+                return res.status(400).send({ 'message': 'User with that EMAIL already exists' })
             }
             return res.status(400).send(error);
         }
@@ -64,6 +63,7 @@ const User = {
             const token = Utility.generateToken(rows[0].id);
             return res.status(200).send({ token });
         } catch (error) {
+            console.log(error);
             return res.status(400).send(error)
         }
     }

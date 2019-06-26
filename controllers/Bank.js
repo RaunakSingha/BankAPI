@@ -3,9 +3,15 @@ import db from '../db';
 const Bank = {
 
     async getBankDetails(req, res) {
-        const text = 'SELECT * FROM indian_banks WHERE ifsc = $1';
+        const text = 'SELECT * FROM indian_banks WHERE ifsc = $1 OFFSET $2 LIMIT $3';
         try {
-            const { rows } = await db.query(text, [req.body.ifsc]);
+            const { rows } = await db.query(text,
+                [
+                    req.params.ifsc,
+                    req.params.offset,
+                    req.params.limit
+                ]
+            );
             if (!rows[0]) {
                 return res.status(404).send({ 'message': 'Bank not found' });
             }
@@ -17,9 +23,16 @@ const Bank = {
     },
 
     async getBranchDetails(req, res) {
-        const text = 'SELECT * FROM indian_banks WHERE bank_name = $1 AND city = $2';
+        const text = 'SELECT * FROM indian_banks WHERE bank_name = $1 AND city = $2 OFFSET $3 LIMIT $4';
         try {
-            const { rows } = await db.query(text, [req.body.bank_name, req.body.city]);
+            const { rows } = await db.query(text,
+                [
+                    req.params.bank_name,
+                    req.params.city,
+                    req.params.offset,
+                    req.params.limit
+                ]
+            );
             if (!rows[0]) {
                 return res.status(404).send({ 'message': 'Bank not found' });
             }

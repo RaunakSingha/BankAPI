@@ -17,9 +17,10 @@ app.use(express.json());
 app.get('/', (req, res) => {
     return res.status(200).send({ 'message': 'Hello World' });
 });
-app.post('/api/users', User.create);
+app.post('/api/register', User.create);
 app.post('/api/login', User.login);
-app.get('/ifsc', Auth.verifyToken, Bank.getBankDetails);
+app.get('/api/bank/:ifsc/:offset/:limit', Auth.verifyToken, Bank.getBankDetails);
+app.get('/api/branch/:bank_name/:city/:offset/:limit', Auth.verifyToken, Bank.getBranchDetails);
 
 
 app.listen(PORT, () => console.log(`LISTENING ON PORT ${PORT}`));
