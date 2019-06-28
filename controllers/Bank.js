@@ -7,9 +7,9 @@ const Bank = {
         try {
             const { rows } = await db.query(text,
                 [
-                    req.params.ifsc,
-                    req.params.offset,
-                    req.params.limit
+                    req.query.ifsc,
+                    req.query.offset,
+                    req.query.limit
                 ]
             );
             if (!rows[0]) {
@@ -27,10 +27,10 @@ const Bank = {
         try {
             const { rows } = await db.query(text,
                 [
-                    req.params.bank_name,
-                    req.params.city,
-                    req.params.offset,
-                    req.params.limit
+                    req.query.bank_name,
+                    req.query.city,
+                    req.query.offset,
+                    req.query.limit
                 ]
             );
             if (!rows[0]) {

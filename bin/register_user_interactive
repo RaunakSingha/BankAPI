@@ -1,0 +1,4 @@
+read -r -p 'Email iD (proper format): ' email
+read -s -p 'Password: ' password
+
+curl -i -H "Content-Type: application/json" https://guarded-lake-68101.herokuapp.com/api/register -d "{\"email\":\"$email\", \"password\":\"$password\"}"

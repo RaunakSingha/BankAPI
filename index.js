@@ -19,8 +19,8 @@ app.get('/', (req, res) => {
 });
 app.post('/api/register', User.create);
 app.post('/api/login', User.login);
-app.get('/api/bank/:ifsc/:offset/:limit', Auth.verifyToken, Bank.getBankDetails);
-app.get('/api/branch/:bank_name/:city/:offset/:limit', Auth.verifyToken, Bank.getBranchDetails);
+app.get('/api/bank/', Auth.verifyToken, Bank.getBankDetails); // Query params: ifsc, offset, limit
+app.get('/api/branch/', Auth.verifyToken, Bank.getBranchDetails); // Query params: bank_name, city, offset, limit
 
 
 app.listen(PORT, () => console.log(`LISTENING ON PORT ${PORT}`));

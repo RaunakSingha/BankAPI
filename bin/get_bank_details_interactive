@@ -1,0 +1,6 @@
+read -r -p 'Token from login: ' token
+read -r -p 'IFSC: ' ifsc
+read -r -p 'Limit: ' limit
+read -r -p 'Offset: ' offset
+
+curl -i -H "x-api-key: $token"  -X GET -G 'https://guarded-lake-68101.herokuapp.com/api/bank/' -d ifsc=$ifsc -d limit=$limit -d offset=$offset

@@ -1,0 +1,1 @@
+curl -i -H "x-api-key: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJlMzQ1OWVmNC03ZTA3LTQ5OGMtODg1NC0wODkwMGNjZDkwYjAiLCJpYXQiOjE1NjE1NDk2NjMsImV4cCI6MTU2MTk4MTY2M30.ylrkry7xU2NRpkM1uAPQmfoW_Rd9jz3UmS4DFX-7xSo"  -X GET -G 'https://guarded-lake-68101.herokuapp.com/api/bank/' -d ifsc=ABHY0065013 -d limit=1 -d offset=0
