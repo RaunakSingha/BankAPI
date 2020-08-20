@@ -22,7 +22,7 @@
     "babel-cli": "^6.26.0",
     "babel-loader": "^8.0.6",
     "babel-watch": "^7.0.0",
-    "bcrypt": "^3.0.6",
+    "bcrypt": "^5.0.0",
     "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",
     "nodemon": "^1.19.1",
